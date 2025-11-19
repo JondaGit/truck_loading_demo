@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import './App.css'
 import TruckScene from './components/TruckScene'
+import BoxList from './components/BoxList'
 import { sampleLoadingData } from './sampleData'
 
 function App() {
   const [selectedBox, setSelectedBox] = useState(null)
+  const [highlightedBoxId, setHighlightedBoxId] = useState(null)
 
   return (
     <div className="app">
@@ -14,6 +16,12 @@ function App() {
         <p>Total weight: {sampleLoadingData.boxes.reduce((sum, box) => sum + box.weight, 0)} kg</p>
         <p>Total volume: {sampleLoadingData.boxes.reduce((sum, box) => sum + (box.dimensions.width * box.dimensions.height * box.dimensions.depth), 0).toFixed(2)} m³</p>
       </div>
+
+      <BoxList
+        boxes={sampleLoadingData.boxes}
+        onBoxListHover={setHighlightedBoxId}
+        highlightedBoxId={highlightedBoxId}
+      />
 
       <div className="controls-hint">
         <h4>Controls</h4>
@@ -60,6 +68,7 @@ function App() {
       <TruckScene
         loadingData={sampleLoadingData}
         onBoxHover={setSelectedBox}
+        highlightedBoxId={highlightedBoxId}
       />
     </div>
   )

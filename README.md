@@ -5,19 +5,29 @@ A 3D interactive visualization tool for truck loading algorithms built with Reac
 ## Features
 
 - **3D Truck Container Visualization**: Transparent truck container with metallic frame showing interior space
+- **Efficient Packing Display**: 40 tightly-packed boxes demonstrating optimal space utilization across multiple layers
 - **Interactive Cargo Boxes**: Color-coded boxes representing loaded cargo with hover effects
+- **Sidebar Cargo List**: Scrollable list showing all boxes with:
+  - Color indicators
+  - Box IDs and labels
+  - Dimensions and weight
+  - Hover-to-highlight interaction
+- **Smart Highlighting System**:
+  - Hover over items in the sidebar list to highlight them in 3D
+  - Other boxes become transparent to focus on the selected box
+  - Smooth animations for all transitions
 - **Camera Controls**:
   - Left click + drag: Rotate view
   - Right click + drag: Pan
   - Mouse wheel: Zoom in/out
-- **Box Details**: Hover over any box to see detailed information including:
+- **Box Details Panel**: Hover over any box to see detailed information including:
   - Box ID
   - Dimensions (width × height × depth)
   - Weight
   - Position coordinates
   - Custom labels
 - **Loading Statistics**: Real-time display of:
-  - Total boxes loaded
+  - Total boxes loaded (40 boxes)
   - Total weight
   - Total volume
 
@@ -53,8 +63,10 @@ src/
 ├── components/
 │   ├── TruckScene.jsx       # Main 3D canvas and scene setup
 │   ├── TruckContainer.jsx   # 3D truck container model
-│   └── CargoBox.jsx         # Individual cargo box component
-├── sampleData.js            # Sample truck loading data
+│   ├── CargoBox.jsx         # Individual cargo box component
+│   ├── BoxList.jsx          # Sidebar cargo list component
+│   └── BoxList.css          # Cargo list styles
+├── sampleData.js            # Sample truck loading data (40 boxes)
 ├── App.jsx                  # Main application component
 ├── App.css                  # Application styles
 ├── main.jsx                 # React entry point

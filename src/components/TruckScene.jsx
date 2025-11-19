@@ -3,7 +3,7 @@ import { OrbitControls, Grid, Sky, Environment } from '@react-three/drei'
 import TruckContainer from './TruckContainer'
 import CargoBox from './CargoBox'
 
-function TruckScene({ loadingData, onBoxHover }) {
+function TruckScene({ loadingData, onBoxHover, highlightedBoxId }) {
   return (
     <Canvas
       camera={{ position: [15, 10, 15], fov: 50 }}
@@ -47,6 +47,7 @@ function TruckScene({ loadingData, onBoxHover }) {
           key={box.id}
           box={box}
           onHover={onBoxHover}
+          highlightedBoxId={highlightedBoxId}
         />
       ))}
 
