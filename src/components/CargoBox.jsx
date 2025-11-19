@@ -55,6 +55,7 @@ function CargoBox({ box, onHover, highlightedBoxId }) {
       receiveShadow
       onPointerOver={handlePointerOver}
       onPointerOut={handlePointerOut}
+      renderOrder={0}
     >
       <boxGeometry args={[width, height, depth]} />
       <meshStandardMaterial
@@ -66,6 +67,7 @@ function CargoBox({ box, onHover, highlightedBoxId }) {
         emissiveIntensity={(hovered || isHighlighted) ? 0.4 : 0}
         transparent
         opacity={opacity}
+        depthWrite={!isDimmed}
       />
 
       {/* Edge highlights */}

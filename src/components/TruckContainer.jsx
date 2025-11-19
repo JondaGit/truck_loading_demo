@@ -13,7 +13,8 @@ function TruckContainer({ dimensions }) {
     roughness: 0.2,
     transparent: true,
     opacity: 0.3,
-    side: THREE.DoubleSide
+    side: THREE.DoubleSide,
+    depthWrite: false
   })
 
   const frameMaterial = new THREE.MeshStandardMaterial({
@@ -27,22 +28,22 @@ function TruckContainer({ dimensions }) {
   return (
     <group ref={groupRef}>
       {/* Back wall */}
-      <mesh position={[-length / 2, height / 2, 0]} material={wallMaterial}>
+      <mesh position={[-length / 2, height / 2, 0]} material={wallMaterial} renderOrder={-1}>
         <boxGeometry args={[0.05, height, width]} />
       </mesh>
 
       {/* Left wall */}
-      <mesh position={[0, height / 2, -width / 2]} material={wallMaterial}>
+      <mesh position={[0, height / 2, -width / 2]} material={wallMaterial} renderOrder={-1}>
         <boxGeometry args={[length, height, 0.05]} />
       </mesh>
 
       {/* Right wall */}
-      <mesh position={[0, height / 2, width / 2]} material={wallMaterial}>
+      <mesh position={[0, height / 2, width / 2]} material={wallMaterial} renderOrder={-1}>
         <boxGeometry args={[length, height, 0.05]} />
       </mesh>
 
       {/* Top wall */}
-      <mesh position={[0, height, 0]} material={wallMaterial}>
+      <mesh position={[0, height, 0]} material={wallMaterial} renderOrder={-1}>
         <boxGeometry args={[length, 0.05, width]} />
       </mesh>
 
